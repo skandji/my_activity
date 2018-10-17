@@ -1,0 +1,15 @@
+page-book-list{
+  .book:hover{
+    background-color: #007aff;
+    color: white;
+  }
+
+  .isLent {
+    background-color: #aeaeae;
+    color: white;
+  }
+
+  .isFree {
+    background-color: lightcyan;
+  }
+}

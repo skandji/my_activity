@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="onToggleMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>CDs</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let cd of cds; let i = index" class="cd" [ngClass]="{'isLent': cd?.isCDLent, 'isFree': !cd?.isCDLent}" (click)="onDetails(i)">
+      <ion-icon name="checkmark-circle" color="secondary" *ngIf="!cd?.isCDLent"></ion-icon>
+      <ion-icon name="close-circle" color="danger" *ngIf="cd?.isCDLent"></ion-icon>
+      <p item-end *ngIf="cd?.duree !== undefined">{{cd?.duree}} min</p>
+      {{cd?.titre}}
+    </button>
+  </ion-list>
+</ion-content>

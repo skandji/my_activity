@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="onToggleMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Livres</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let book of books; let i = index" (click)="onViewBook(i)" [ngClass]="{'isLent': book?.isBookLent, 'isFree': !book?.isBookLent}" class="book">
+      <ion-icon name="checkmark-circle" color="secondary" *ngIf="!book?.isBookLent"></ion-icon>
+      <ion-icon name="close-circle" color="danger" *ngIf="book?.isBookLent"></ion-icon>
+      {{book?.titre}}
+      <ion-list>
+        <ion-item>
+          {{book?.auteur}}
+        </ion-item>
+      </ion-list>
+    </button>
+  </ion-list>
+</ion-content>

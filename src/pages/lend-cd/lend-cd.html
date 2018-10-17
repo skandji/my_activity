@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button clear (click)="onDismiss()">Fermer</button>
+    </ion-buttons>
+    <ion-title>{{cd?.titre}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card [ngClass]="{'isLent': cd?.isCDLent, 'isFree': !cd?.isCDLent}">
+    <ion-item>
+      <h2>{{cd?.titre}}</h2>
+    </ion-item>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngIf="cd?.duree !== undefined">
+          <p item-right>{{cd?.duree}} min</p>
+          Duree
+        </ion-item>
+        <ion-item>
+          Date de publication
+          <p item-right>{{cd?.datePublication}}</p>
+        </ion-item>
+        <ion-item>
+          Editeur
+          <p item-right>{{cd?.editeur}}</p>
+        </ion-item>
+        <ion-item>
+          Lieu d'édition
+          <p item-right>{{cd?.lieuEdition}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button full color="primary" (click)="onMovingCD()" [disabled]="cd?.isCDLent">Prêter</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button full color="danger" (click)="onMovingCD()" [disabled]="!cd?.isCDLent">Rendre</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

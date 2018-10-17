@@ -1,0 +1,11 @@
+page-lend-cd {
+  .isLent {
+    background-color: #c8dcff;
+  }
+
+  .isFree {
+    ion-card-content, ion-card-header, ion-grid {
+      background-color: #c5c5c5;
+    }
+  }
+}

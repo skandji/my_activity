@@ -1,0 +1,15 @@
+page-cd-list{
+  .cd:hover {
+    background-color: gray;
+    color: white;
+  }
+
+  .isLent {
+    background-color: #aeaeae;
+    color: white;
+  }
+
+  .isFree {
+    background-color: lightcyan;
+  }
+}
